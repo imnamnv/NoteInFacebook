@@ -1,0 +1,47 @@
+{
+    "manifest_version": 2,
+    "name": "Note by Nam",
+    "version": "0.1",
+    "browser_action": {
+        "default_popup": "popup.html",
+        "default_icon": "icon16.png"
+    },
+    "icons": {
+        "128": "icon128.png",
+        "48": "icon48.png",
+        "16": "icon16.png"
+    },
+    "background": {
+        "page": "background.html"
+    },
+    "permissions": [
+        "tabs",
+        "webNavigation",
+        "tabs",
+        "activeTab",
+        "storage",
+        "http://www.facebook.com/*",
+        "https://www.facebook.com/*",
+        "http://web.facebook.com/*",
+        "https://web.facebook.com/*",
+        "http://*/*",
+        "https://*/*",
+        "<all_urls>"
+    ],
+    "content_scripts": [
+        {
+            "css": [
+                "content_css.css"
+            ],
+            "all_frames": true,
+            "matches": [
+                "*://*/*" 
+            ],
+            "js": [
+                "jquery-3.4.1.min.js",
+                "content.js"
+            ],
+            "run_at": "document_start"
+        }
+    ]
+}
